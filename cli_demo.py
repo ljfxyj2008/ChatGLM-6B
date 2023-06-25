@@ -4,8 +4,9 @@ import signal
 from transformers import AutoTokenizer, AutoModel
 import readline
 
-tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True)
-model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
+# 这里的模型名称被ljfxyj2008改成了我下载到本地的模型文件件名称"chatglm-6b-model"，原始文件是"THUDM/chatglm-6b"，原始文件会导致脚本自动下载模型
+tokenizer = AutoTokenizer.from_pretrained("chatglm-6b-model", trust_remote_code=True)
+model = AutoModel.from_pretrained("chatglm-6b-model", trust_remote_code=True).half().cuda()
 model = model.eval()
 
 os_name = platform.system()
